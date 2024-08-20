@@ -1,0 +1,11 @@
+services:
+  jager:
+    image: jaegertracing/all-in-one:latest
+    logging:
+      driver: none
+    environment:
+      - "COLLECTOR_OTLP_ENABLED=true"
+    ports:
+      - "4317:4317"  # OTLP over grpc
+      - "4318:4318"  # OTLP over http
+      - "16686:16686"  # UI
